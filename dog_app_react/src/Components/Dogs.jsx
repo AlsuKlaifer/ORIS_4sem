@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Card, Col, Row, Container} from 'react-bootstrap';
+import {Card, Col, Row, Container, Button} from 'react-bootstrap';
 
 const Dogs = () => {
     const apiUrl = 'https://api.thedogapi.com/v1/breeds?limit=172&page=0';
@@ -27,12 +27,12 @@ const Dogs = () => {
             <Container>
                 <Row className="justify-content-center">
                     {Object.values(dogs).map(dog => (
-                        <Col style={{height: 300}} key={dog.id}>
-                            <Card style={{width: 160}} >
+                        <Col style={{height: 350}} key={dog.id}>
+                            <Card style={{width: 160, height: 270}} >
                                 <Card.Body>
-                                    <Card.Title>{dog.name}</Card.Title>
-                                    {/* <p>{dog.description}</p> */}
-                                    <Card.Img src={dog.image.url} />
+                                    <Card.Title style={{height: 50}}>{dog.name}</Card.Title>
+                                    <Card.Img style={{height: 100}} src={dog.image.url} />
+                                    <Button style={{marginTop: 20}} variant="primary">Read more</Button>
                                 </Card.Body> 
                             </Card>
                         </Col>
